@@ -1,15 +1,22 @@
 package br.com.escola.ProjetoEscolaS.model;
 
+import lombok.AccessLevel;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
+@Data
 public class Aluno {
-    private int id;
+    @Setter(AccessLevel.NONE) private Integer id;
     private String nome;
     private Date nascimento;
 
-    private static int ultimoId = 0;
+    private static Integer ultimoId = 0;
 
     public Aluno(String nome, String nascimento) {
         this.id = getNewId();
@@ -25,6 +32,15 @@ public class Aluno {
     private static int getNewId() {
         ultimoId++;
         return ultimoId;
+    }
+
+    @Getter
+    static ArrayList<Aluno> alunos = new ArrayList<>();
+
+    public static Aluno salvar(Aluno aluno) {
+        aluno.id = getNewId();
+        alunos.add(aluno);
+        return aluno;
     }
 
 
