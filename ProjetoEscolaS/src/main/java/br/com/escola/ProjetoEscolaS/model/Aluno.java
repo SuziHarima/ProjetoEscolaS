@@ -43,5 +43,16 @@ public class Aluno {
         return aluno;
     }
 
+    public static Aluno buscaPorId(Integer id) throws Exception {
+        for (Aluno aluno : alunos){
+            if (aluno.getId().equals(id)) {
+                return aluno;
+            }
+        }
+        throw new Exception("Aluno não encontrado");
+    }
+
+
+
 
 }

@@ -22,6 +22,10 @@ public class AlunoService {
         return true;
     }
 
+    public Aluno buscarPorId(Integer id) throws Exception {
+        return Aluno.buscaPorId(id);
+    }
+
     public ArrayList<Aluno> buscarTodos() {
         return Aluno.getAlunos();
     }

@@ -10,6 +10,7 @@ public class Curso {
     private String nome;
     private String descricao;
     private Integer cargaHoraria;
+    private ArrayList<Aluno> alunosMatriculados = new ArrayList<>();
 
 
     private static int ultimoId = 0;
@@ -28,5 +29,17 @@ public class Curso {
         return curso;
     }
 
+    public static Curso buscarPorId(Integer id) throws Exception {
+        for (Curso curso : cursos) {
+            if (curso.getId().equals(id)){
+                return curso;
+            }
+        }
+        throw new Exception("Curso não encontrado");
+    }
+
+    public static void matricular(Curso curso, Aluno aluno) {
+        curso.alunosMatriculados.add(aluno);
+    }
 
 }

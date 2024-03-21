@@ -1,5 +1,6 @@
 package br.com.escola.ProjetoEscolaS.controller;
 
+import br.com.escola.ProjetoEscolaS.model.Aluno;
 import br.com.escola.ProjetoEscolaS.model.Curso;
 import br.com.escola.ProjetoEscolaS.service.CursoService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,12 @@ public class CursoController {
     @GetMapping
     public ArrayList<Curso> get() {
         return cursoService.buscarTodos();
+    }
+
+
+    @PostMapping("matricular/{id}")
+    public Curso post(@PathVariable Integer id, @RequestBody Aluno aluno) throws Exception {
+        return cursoService.matricular(id, aluno.getId());
     }
 
 }
