@@ -26,7 +26,7 @@ public class CursoService {
         return true;
     }
 
-    public ArrayList<Curso> buscarTodos() throws Exception {
+    public ArrayList<Curso> buscarTodos() {
         return Curso.getCursos();
     }
 
