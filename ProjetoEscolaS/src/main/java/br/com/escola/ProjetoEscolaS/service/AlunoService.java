@@ -22,7 +22,7 @@ public class AlunoService {
         return true;
     }
 
-    public ArrayList<Aluno> buscar() throws Exception {
+    public ArrayList<Aluno> buscarTodos() {
         return Aluno.getAlunos();
     }
 
